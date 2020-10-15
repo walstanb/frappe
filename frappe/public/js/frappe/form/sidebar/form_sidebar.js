@@ -154,7 +154,8 @@ frappe.ui.form.Sidebar = class {
 			parent: this.sidebar.find(".tag-area"),
 			frm: this.frm,
 			on_change: function(user_tags) {
-				this.frm.tags && this.frm.tags.refresh(user_tags);
+				this.frm.tags;
+				// && this.frm.tags.refresh(user_tags);
 			}
 		});
 	}

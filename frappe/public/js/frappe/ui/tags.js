@@ -37,7 +37,14 @@ frappe.ui.Tags = class {
 		const me = this;
 		const select_tag = function() {
 			const tagValue = frappe.utils.xss_sanitise(me.$input.val());
-			me.addTag(tagValue);
+						
+			if (tagValue.match(/[,]/)) {
+				const tagValues = tagValue.split(",");
+				tagValues.forEach(tagValue => { me.addTag(tagValue) });
+			}
+			else {
+				me.addTag(tagValue);
+			}
 			me.$input.val('');
 		}
 
